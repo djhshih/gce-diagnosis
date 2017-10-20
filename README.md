@@ -33,7 +33,7 @@ If a program is writing more (temporary) data to the persistent disk than the la
 
 ### Intervention
 
-Track the size of the output (temporary) data in real time by running `df` as a background process, and allocate sufficient persistent disk space. (At the time of writing this document, `conky` can correctly report usage of any mount point within a `docker` container; however, this functionality does not work within the Google compute engine environment due to an undiagnosed cause.)
+Track the size of the output (temporary) data in real time by running `df` as a background process, and allocate sufficient persistent disk space. (At the time of writing this document, `conky` can correctly report usage of any mount point within a `docker` container; however, this functionality does not work within the Google compute engine environment due to an unknown cause.)
 
 
 ## Running out of memory
