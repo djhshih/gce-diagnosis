@@ -1,4 +1,4 @@
-# Diagnostic Notes for Google Cloud Engine
+# Diagnostic Notes for Google Compute Engine
 
 When a job runs much longer than expected or spontaneously stops, it may be adversely affected by an undiagnosed performance bottleneck. Identiying the underlying cause would help resolve the problem and allow the job to run more efficiently.
 
