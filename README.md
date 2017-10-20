@@ -13,7 +13,7 @@ Some programs can write massive amount of data to disk unbeknownst to the user a
 
 ### Symptoms
 
-- Output files in such locations as `/tmp`
+- Output files appear in such locations as `/tmp`.
 - Unexpected, sustained low CPU usage
 - Unexpected, sustained low disk write
 
@@ -29,9 +29,9 @@ Google Cloud Console does not track memory usage. When a compute node runs out o
 ### Symptoms
 
 - Serial port console output contains error: `[Errno 12] Cannot allocate memory`.
-- Sustained disk read for an extended period of time (if the program's heavy memory consumption is primarily due to data input)
-- CPU usage and disk usage may not appear abnormal (usage varies through time)
-- Job is killed unexpectedly (but it was not preempted)
+- Sustained disk read for an extended period of time (if the program's heavy memory consumption is primarily due to data input).
+- If CPU and disk usage are normally cyclical, they may now oscillate without predictable pattern.
+- Job is killed unexpectedly (but it was not preempted).
 
 ### Intervention
 
