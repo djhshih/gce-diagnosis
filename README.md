@@ -50,4 +50,4 @@ The preconfigured compute engines come with a fixed RAM memory to CPU ratio. A m
 
 ## Concluding remarks
 
-Indeed, the first step to maximize performance and minimize cost is to diagnose the performance bottleneck. Unexpected disk input-output as well as memory overconsumption may be difficult to diagnosis without prior awareness. Cloud computing provides unprecedent access to massive computing resources, albeit at considerable cost if misused.
+Indeed, the first step to maximize performance and minimize cost is to diagnose performance bottlenecks. Unexpected disk input-output as well as memory overconsumption may be difficult to diagnosis without prior awareness. Cloud computing provides unprecedent access to massive computing resources, albeit at considerable cost if misused.
