@@ -2,7 +2,7 @@
 
 When a job is running much longer than expected or spontaneously stop, one or more of the following causes could explain the symptoms. Identiying the cause would help resolve the problem and allow the job to run more efficiently.
 
-To diagnosis such an issue, it is important to monitor CPU and disk usage via the Google Cloud console. Memory usage may be monitored by `ssh` login to the compute node. Alternatively, one may also run progams such as `conky` as background process on the compute node to print usage statistics to `stderr` (see [conkymon](https://github.com/djhshih/conkymon)). Standard Linux utilities such as `df` and `free` may also be launched in the background on the node to monitor specific disk usage and memory usage respectively.
+To diagnosis such an issue, it is important to monitor CPU and disk usage, as well as Serial port console output, via the Google Cloud console. Outputs from `gsutil` may also be helpful. Memory usage may be monitored by `ssh` login to the compute node. Alternatively, one may also run progams such as `conky` as background process on the compute node to print usage statistics to `stderr` (see [conkymon](https://github.com/djhshih/conkymon)). Standard Linux utilities such as `df` and `free` may also be launched in the background on the node to monitor specific disk usage and memory usage respectively.
 
 The causes of unexpected long-running jobs may include:
 
