@@ -24,7 +24,7 @@ Ensure the program writes output to an additional persistent disk instead; eithe
 
 ## Running out of persistent disk space
 
-If a program is writing more (temporary) data to the persistent disk than the latter can store. Depending on the program's quality, it may crash unceremoniously or exit more gracefully with a non-zero status code and a helpful error message. This overflowing problem is distinct from the writing to boot disk problem because it is not limited by low write throughput.
+If a program is writing more (temporary) data to the persistent disk than the latter can store. Depending on the program's quality, it may crash unceremoniously or exit more gracefully with a non-zero status code and a helpful error message. This insufficient disk problem is different from the writing to boot disk problem because it is not limited by low write throughput, though the boot disk can certainly reach capacity given enough time.
 
 ### Symptoms
 
