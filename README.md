@@ -6,9 +6,10 @@ To diagnosis such an issue, it is important to monitor CPU and disk usage, as we
 
 The causes of unexpected long-running jobs may include:
 
+
 ## Excessive writing to boot disk
 
-Some programs can write massive amount of data to disk unbeknownst to the user at locations such as `/tmp`. This can cause the program to slow to a crawl because the sustained read/write throughput limit of the boot disk is very low (1.2 MB/s). In contrast, additional persistent disks have much higher throughput limit (up to 120 MB/s), and persistent solid state disk have even higher throughput.
+Some programs can write massive amount of data to disk unbeknownst to the user at locations such as `/tmp` or `/var/run`. This can cause the program to slow to a crawl because the sustained read/write throughput limit of the standard boot disk is very low (1.2 MB/s). In contrast, additional persistent disks have much higher throughput limit (up to 120 MB/s), and persistent solid state disk may have an even higher throughput (> 240 MB/s).
 
 ### Symptoms
 
@@ -16,7 +17,7 @@ Some programs can write massive amount of data to disk unbeknownst to the user a
 - Unexpected, sustained low CPU usage
 - Unexpected, sustained low disk write
 
-### Treatment
+### Intervention
 
 Ensure the program writes output to an additional persistent disk instead; either redirect the output to another directory on a persistent disk or mount a persistent disk at the location where the program is writing, e.g. `/tmp`.
 
@@ -32,6 +33,21 @@ Google Cloud Console does not track memory usage. When a compute node runs out o
 - CPU usage and disk usage may not appear abnormal (usage varies through time)
 - Job is killed unexpectedly (but it was not preempted)
 
-### Treatment
+### Intervention
 
 Request compute engines with more memory. Reduce memory usage of the program by tweaking its command line parameters. Process data in smaller batches. Modify the program to reduce memory footprint.
+
+
+## Underutilizing CPU
+
+Since the cost per CPU is fixed across the preconfigured compute engines, one may reduce job run time by using more cores with negligible increase in cost (due to mandatory single-threaded tasks within a job workflow). If the program supports native multithreading, it may be configured to use more parallel threads (with possibly higher memory consumption that may exceed the alloted memory). Alternatively, the input data may split into batches, and the batches may be processed on parallel.
+
+
+## Mismatched memory to CPU ratio
+
+The preconfigured compute engines come with a fixed RAM memory to CPU ratio. A memory intensive program may underutilized CPU, or a CPU intensive program may underutilized memory. It may be possible to reduce cost by configuring a custom virtual machine.
+
+
+## Concluding remarks
+
+Indeed, the first step to maximize performance and minimize cost is to diagnose the performance bottleneck. Unexpected disk input-output as well as memory overconsumption may be difficult to diagnosis without prior awareness. Cloud computing provides unprecedent access to massive computing resources, albeit at considerable cost if misused.
