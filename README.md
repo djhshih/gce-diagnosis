@@ -9,11 +9,11 @@ The causes of unnecessarily long running jobs may include:
 
 ## Excessive writing to boot disk
 
-Some programs can write massive amount of data to disk unbeknownst to the user at locations such as `/tmp` or `/var/run`. This can cause the program to slow to a crawl because the sustained read/write throughput limit of the standard boot disk is very low (1.2 MB/s). In contrast, additional persistent disks have much higher throughput limit (up to 120 MB/s), and persistent solid state disk may have an even higher throughput (> 240 MB/s).
+Some programs can write massive amount of data to disk unbeknownst to the user at locations such as `/tmp`. This can cause the program to slow to a crawl because the sustained read/write throughput limit of the standard boot disk is very low (1.2 MB/s). In contrast, additional persistent disks have much higher throughput limit (up to 120 MB/s), and persistent solid state disk may have an even higher throughput (> 240 MB/s).
 
 ### Symptoms
 
-- Output files appear in such locations as `/tmp`.
+- Output files appear in `/tmp`, `/var/run`, `/var/log` or similar locations.
 - Unexpected, sustained low CPU usage
 - Unexpected, sustained low disk write
 
