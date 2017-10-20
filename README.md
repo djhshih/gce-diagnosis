@@ -45,7 +45,7 @@ Since the cost per CPU is fixed across the preconfigured compute engines, one ma
 
 ## Mismatched memory to CPU ratio
 
-The preconfigured compute engines come with a fixed RAM memory to CPU ratio. A memory intensive program may underutilized CPU, or a CPU intensive program may underutilized memory. It may be possible to reduce cost by configuring a custom virtual machine.
+The preconfigured compute engines come with a fixed RAM memory to CPU ratio. A memory intensive program may underutilized CPU, or a CPU intensive program may underutilized memory. It may be possible to reduce cost with no performance impact by configuring a custom virtual machine.
 
 
 ## Concluding remarks
