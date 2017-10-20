@@ -49,7 +49,7 @@ Google Cloud Console does not track memory usage. When a compute node runs out o
 
 ### Intervention
 
-Request compute engines with more memory. Reduce memory usage of the program by tweaking its command line parameters. (Depending on the program's quality, it may not adhere to the requested memory limit.) Process data in smaller batches. Modify the program or switch to another program to reduce memory footprint.
+Request compute engines with more memory. Reduce memory usage of the program by tweaking its command line parameters. (Depending on the program's quality, it may not adhere to the requested memory limit.) Process data in smaller batches. Modify the program, or switch to another program, to reduce memory footprint.
 
 
 ## Underutilizing CPU
