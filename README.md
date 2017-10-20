@@ -4,7 +4,7 @@ When a job runs much longer than expected or spontaneously stops, it may be adve
 
 To diagnosis such an issue, it is important to monitor CPU and disk usage, as well as Serial port console output, via the Google Cloud Console. Outputs from `gsutil` may also be helpful. Memory usage may be monitored by `ssh` login to the compute node. Alternatively, one may also run progams such as `conky` as background process on the compute node to print usage statistics to `stderr` (see [conkymon](https://github.com/djhshih/conkymon)). Standard Linux utilities such as `df` and `free` may also be launched in the background on the node to monitor specific disk usage and memory usage respectively.
 
-The causes of unexpected long-running jobs may include:
+The causes of unnecessarily long running jobs may include:
 
 
 ## Excessive writing to boot disk
@@ -20,6 +20,20 @@ Some programs can write massive amount of data to disk unbeknownst to the user a
 ### Intervention
 
 Ensure the program writes output to an additional persistent disk instead; either redirect the output to another directory on a persistent disk or mount a persistent disk at the location where the program is writing, e.g. `/tmp`.
+
+
+## Running out of persistent disk space
+
+If a program is writing more (temporary) data to the persistent disk than the latter can store. Depending on the program's quality, it may crash unceremoniously or exit more gracefully with a non-zero status code and a helpful error message. This overflowing problem is distinct from the writing to boot disk problem because it is not limited by low write throughput.
+
+### Symptoms
+
+- Program may output: `Cannot write to file`.
+- Unexpected program crash
+
+### Intervention
+
+Track the size of the output (temporary) data in real time by running `df` as a background process, and allocate sufficient persistent disk space. (At the time of writing this document, `conky` can correctly report usage of any mount point within a `docker` container; however, this functionality does not work within the Google compute engine environment due to an undiagnosed cause.)
 
 
 ## Running out of memory
